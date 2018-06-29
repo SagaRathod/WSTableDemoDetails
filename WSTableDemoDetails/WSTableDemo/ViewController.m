@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     NSURL *url=[NSURL URLWithString:@"http://api.androidhive.info/contacts/"];
     NSURLRequest *req=[NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *  response, NSData * data, NSError *  connectionError)
@@ -56,7 +57,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    static NSString *iden=@"Cell";
+    static NSString *iden=@"Cell";//identifier of cell
     cell=[tableView dequeueReusableCellWithIdentifier:iden];
     cell.idText.text=[NSString stringWithFormat:@"%@",[[array objectAtIndex:indexPath.row] objectForKey:@"id"]];
     cell.contentText.text=[NSString stringWithFormat:@"%@",[[array objectAtIndex:indexPath.row] objectForKey:@"name"]];
@@ -65,11 +66,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //here we perform operation
     [self performSegueWithIdentifier:@"showdetail" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //here send data to newviewcontroller
     if([segue.identifier isEqualToString:@"showdetail"])
     {
         NSIndexPath *indexPath=[self.mytab indexPathForSelectedRow];
@@ -88,3 +90,7 @@
 
 
 @end
+
+
+
+

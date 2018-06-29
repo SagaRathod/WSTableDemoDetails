@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//here we add datasource and delegate for tableview
 @interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)IBOutlet UITableView *mytab;
 

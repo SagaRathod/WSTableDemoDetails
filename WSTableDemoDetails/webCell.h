@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//this is the cell file
 @interface webCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *idText;
 @property (weak, nonatomic) IBOutlet UILabel *contentText;
